@@ -1,0 +1,11 @@
+svg:hover {
+  fill: mediumblue;
+}
+
+svg:not:hover {
+  fill: lightskyblue;
+}
+
+.mic-button {
+  border-radius: 100px;
+}
