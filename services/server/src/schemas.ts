@@ -1,11 +1,8 @@
-export interface FollowUpPayload {
-  items: string[];
-  type: "followUpPayload";
-  createdAt: number;
-}
+import { z } from "zod";
 
-export interface AgentQuestions {
-  query: string;
-  type: "agentQuestions";
-  createdAt: number;
-}
+export const FollowUpPayloadSchema = z.object({
+  items: z.array(z.string().trim()).min(1).max(8),
+  createdAt: z.number().int().nonnegative(),
+});
+
+export type FollowUpPayload = z.infer<typeof FollowUpPayloadSchema>;
